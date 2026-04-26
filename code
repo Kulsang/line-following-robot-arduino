@@ -1,0 +1,31 @@
+// Line Following Robot using Arduino Nano
+// One IR sensor + two DC motors
+
+#define IR_SENSOR 2
+
+#define LEFT_MOTOR_PIN 5
+#define RIGHT_MOTOR_PIN 6
+
+#define MOTOR_SPEED 120   // value: 0 to 255
+
+void setup() {
+  pinMode(IR_SENSOR, INPUT);
+
+  pinMode(LEFT_MOTOR_PIN, OUTPUT);
+  pinMode(RIGHT_MOTOR_PIN, OUTPUT);
+}
+
+void loop() {
+  int sensorValue = digitalRead(IR_SENSOR);
+
+  if (sensorValue == LOW) {
+    // Black line detected
+    analogWrite(LEFT_MOTOR_PIN, MOTOR_SPEED);
+    analogWrite(RIGHT_MOTOR_PIN, 0);
+  } 
+  else {
+    // White surface detected
+    analogWrite(LEFT_MOTOR_PIN, 0);
+    analogWrite(RIGHT_MOTOR_PIN, MOTOR_SPEED);
+  }
+}
