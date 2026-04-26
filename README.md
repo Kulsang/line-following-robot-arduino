@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-![Line Following Robot](robot)
+![Line Following Robot](robot.png)
 
 ---
 
